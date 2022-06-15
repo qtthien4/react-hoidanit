@@ -6,10 +6,12 @@ class Test extends React.Component {
 
     state = {
         list: [{
+            id: '1',
             name: 'quynh',
             job: 'quan tri kinh doanh'
         },
         {
+            id: '2',
             name: 'hung',
             job: 'cntt'
         },
@@ -19,12 +21,19 @@ class Test extends React.Component {
     addListUser = (job) => {
         this.setState({ list: [...this.state.list, job] })
     }
+
+    delItemListUser = (itemList) => {
+        let listUser = this.state.list
+
+        listUser = listUser.filter((item) => item.id !== itemList.id)
+        this.setState({ list: listUser })
+    }
     render() {
 
         return <>
             <Form addListUser={this.addListUser} />
             {/* <Form /> */}
-            <ComponentCon listUser={this.state.list} />
+            <ComponentCon listUser={this.state.list} delItem={this.delItemListUser} />
 
         </>
     }

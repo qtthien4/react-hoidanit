@@ -8,13 +8,14 @@ class Form extends React.Component {
     }
 
     handleSubmit = (e) => {
+
+        e.preventDefault();
+        this.state.id = Math.floor((Math.random() * 2000));
+        this.props.addListUser(this.state)
         this.setState({
             name: '',
             job: ''
         })
-        e.preventDefault();
-        this.props.addListUser(this.state)
-
     }
     handleName = (e) => {
         this.setState({ name: e.target.value })

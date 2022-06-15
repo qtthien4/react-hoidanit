@@ -10,6 +10,11 @@ class ComponentCon extends React.Component {
         this.setState({ status: !this.state.status })
     }
 
+    handleOnClickDel = (item) => {
+        this.props.delItem(item)
+        // console.log(item);
+    }
+
     render() {
         var list = this.props.listUser
         return <>
@@ -21,7 +26,10 @@ class ComponentCon extends React.Component {
                             list.map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        {item.name} - {item.job}
+                                        {item.name} - {item.job} <></>
+                                        <span onClick={() => this.handleOnClickDel(item)}>
+                                            x
+                                        </span>
                                     </div>
                                 )
                             })
