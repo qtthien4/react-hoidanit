@@ -11,12 +11,23 @@ class ComponentCon extends React.Component {
     }
 
     render() {
+        var list = this.props.listUser
         return <>
             {
                 !this.state.status ?
                     <button onClick={() => this.handleOnClick()}>show</button> :
-                    <> xin chao minh la component con va minh ten la {this.props.name}
-                        <button onClick={() => this.handleOnClick()}>hide</button> </>
+                    <>
+                        {
+                            list.map((item, index) => {
+                                return (
+                                    <div key={index}>
+                                        {item.name} - {item.job}
+                                    </div>
+                                )
+                            })
+                        }
+                        <button onClick={() => this.handleOnClick()}>hide</button>
+                    </>
             }
 
 

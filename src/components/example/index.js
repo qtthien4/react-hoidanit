@@ -1,34 +1,32 @@
 import React from "react";
 import ComponentCon from "./Coasdn";
+import Form from './form'
 
 class Test extends React.Component {
 
     state = {
-        name: 'quynh',
-        nganh: 'quan tri kinh doanh'
+        list: [{
+            name: 'quynh',
+            job: 'quan tri kinh doanh'
+        },
+        {
+            name: 'hung',
+            job: 'cntt'
+        },
+        ]
     }
 
-    HandleChange = (e) => {
-        this.setState({ name: e.target.value })
+    addListUser = (job) => {
+        this.setState({ list: [...this.state.list, job] })
     }
-
-    handClickButton = () => {
-        alert('da click')
-    }
-
     render() {
+
         return <>
-            <input onChange={(e) => {
-                this.HandleChange(e)
-            }} />
-            <div>xin chao {this.state.name}</div>
-            <div>lam {this.state.nganh}</div>
-            <button onClick={() => this.handClickButton()}> Click Me !</button>
+            <Form addListUser={this.addListUser} />
+            {/* <Form /> */}
+            <ComponentCon listUser={this.state.list} />
 
-            <br />
-            <ComponentCon name={'con thienvo'} />
         </>
-
     }
 }
 
