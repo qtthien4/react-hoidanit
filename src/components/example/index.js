@@ -7,13 +7,11 @@ class Test extends React.Component {
     state = {
         list: [{
             id: '1',
-            name: 'quynh',
-            job: 'quan tri kinh doanh'
+            todo: 'ngu day'
         },
         {
             id: '2',
-            name: 'hung',
-            job: 'cntt'
+            job: 'an sang'
         },
         ]
     }
@@ -31,9 +29,10 @@ class Test extends React.Component {
     render() {
 
         return <>
+            <div><h3>Simple TODO app</h3></div>
             <Form addListUser={this.addListUser} />
             {/* <Form /> */}
-            <ComponentCon listUser={this.state.list} delItem={this.delItemListUser} />
+            {/* <ComponentCon listUser={this.state.list} delItem={this.delItemListUser} /> */}
 
         </>
     }

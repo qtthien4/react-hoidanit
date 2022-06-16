@@ -3,8 +3,7 @@ import React from "react";
 class Form extends React.Component {
 
     state = {
-        name: '',
-        job: ''
+        todo: ''
     }
 
     handleSubmit = (e) => {
@@ -17,21 +16,14 @@ class Form extends React.Component {
             job: ''
         })
     }
-    handleName = (e) => {
+    handleTodo = (e) => {
         this.setState({ name: e.target.value })
-    }
-    handleJob = (e) => {
-        this.setState({ job: e.target.value })
     }
     render() {
         return (
-
             <form >
-                <label> name:</label><br />
-                <input type="text" onChange={(e) => this.handleName(e)} /><br />
-                <label >job name:</label><br />
-                <input type="text" onChange={(e) => this.handleJob(e)} /><br />
-                <input type="button" value="Submit" onClick={(e) => this.handleSubmit(e)} />
+                <input type="text" onChange={(e) => this.handleName(e)} /> <></>
+                <input type="button" value="Add" onClick={(e) => this.handleSubmit(e)} />
             </form>
 
         )
